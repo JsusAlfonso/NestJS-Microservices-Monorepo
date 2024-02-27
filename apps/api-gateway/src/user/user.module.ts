@@ -15,8 +15,8 @@ import { ClientProxyFactory, Transport } from '@nestjs/microservices';
           transport: Transport.TCP,
           options: {
             host: configService.get('NODE_ENV').includes('development')
-            ? 'localhost'
-            : 'host.com',
+            ? configService.get('TCP_SERVER_LOCALHOST')
+            : configService.get('TCP_SERVER_HOST'),
             port: configService.get('USER_MICROSERVICE_PORT')
           }
         })
